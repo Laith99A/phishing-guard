@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Phishing Guard – Demo-Seite</title>
+  <style>
+    body { max-width: 720px; margin: 40px auto; font: 16px/1.6 system-ui, sans-serif; color: #222; padding: 0 16px; }
+    h1 { font-size: 24px; }
+    section { margin: 28px 0; padding: 16px 20px; border: 1px solid #ddd; border-radius: 10px; }
+    h2 { font-size: 16px; margin: 0 0 8px; color: #555; }
+    li { margin: 6px 0; }
+    .note { font-size: 14px; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Phishing Guard – Demo-Seite</h1>
+  <p class="note">Mit laufendem Backend und geladener Extension sollten die Links unten entsprechend markiert sein. Keiner dieser Links wird aufgerufen – nur die Adresse wird bewertet. Die „gefährlichen“ Adressen sind ausgedacht.</p>
+
+  <section>
+    <h2>Sollten unauffällig bleiben</h2>
+    <ul>
+      <li><a href="https://www.wikipedia.org/">Wikipedia</a></li>
+      <li><a href="https://github.com/Laith99A/file-integrity-monitor">File Integrity Monitor auf GitHub</a></li>
+      <li><a href="https://www.sparkasse.de/">Sparkasse (echt)</a></li>
+      <li><a href="https://www.paypal.com/signin">PayPal Login (echt)</a></li>
+      <li><a href="https://h-da.de/studium">Hochschule Darmstadt</a></li>
+      <li><a href="https://www.google.com/url?q=https://www.tagesschau.de/&sa=D">Gmail-Redirect zur Tagesschau</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sollten verdächtig oder gefährlich sein</h2>
+    <ul>
+      <li><a href="http://paypa1-login.com/verify">Ihr PayPal-Konto bestätigen</a> – Lookalike-Domain</li>
+      <li><a href="https://sparkasse-sicherheit.top/konto/verifizieren">Sparkasse: Konto verifizieren</a> – Marke + verdächtige TLD</li>
+      <li><a href="http://192.168.4.3/sparkasse/login.php">Online-Banking</a> – IP-Adresse als Host</li>
+      <li><a href="https://amazon.de.konto-update.xyz/login">Amazon Konto-Update</a> – Marke in der Subdomain</li>
+      <li><a href="http://dhl-paket-zustellung.click/tracking?id=8831">DHL Sendung verfolgen</a> – Paket-Masche</li>
+      <li><a href="https://www.google.com/url?q=http://paypa1-login.com/verify&sa=D">Gmail-Redirect zu Phishing</a> – Wrapper wird ausgepackt</li>
+      <li><a href="http://xn--pypal-4ve.com/login">Punycode-Domain</a></li>
+      <li><a href="https://bit.ly/3abcXYZ">Gekürzter Link</a> – Ziel unbekannt</li>
+    </ul>
+  </section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Phishing Guard – Einstellungen</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>body { width: 420px; } input[type=text] { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 8px; font: inherit; }</style>
+</head>
+<body>
+  <header><h1>Einstellungen</h1></header>
+
+  <section class="card">
+    <label for="apiUrl">Backend-URL</label>
+    <input id="apiUrl" type="text" placeholder="http://127.0.0.1:8000" />
+    <p class="small">Adresse der lokalen Phishing-Guard-API. Andere Hosts als 127.0.0.1/localhost brauchen zusätzlich einen Eintrag in <code>host_permissions</code> im Manifest.</p>
+  </section>
+
+  <section class="card">
+    <label><input id="highlightLinks" type="checkbox" /> Verdächtige Links auf Webseiten markieren</label>
+    <p class="small">Wenn aus, prüft die Extension nur noch Texte im Popup.</p>
+  </section>
+
+  <div class="actions">
+    <button id="save" type="button">Speichern</button>
+  </div>
+  <p id="saved" class="small hidden">Gespeichert.</p>
+
+  <script src="options.js"></script>
+</body>
+</html>

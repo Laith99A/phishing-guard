@@ -1,0 +1,42 @@
+{
+  "kind": "tfidf_char(3,5)+lexical -> logreg",
+  "trained_at": "2026-11-15",
+  "n_train": 96000,
+  "n_test": 24000,
+  "precision": 0.9789,
+  "recall": 0.8473,
+  "f1": 0.9084,
+  "roc_auc": 0.9912,
+  "confusion_matrix": [
+    [
+      20051,
+      71
+    ],
+    [
+      592,
+      3286
+    ]
+  ],
+  "features": [
+    "url_length",
+    "host_length",
+    "path_length",
+    "num_dots",
+    "num_hyphens",
+    "num_digits",
+    "num_subdomains",
+    "num_query_params",
+    "num_special",
+    "has_ip_host",
+    "has_at",
+    "has_port",
+    "has_punycode",
+    "suspicious_tld",
+    "is_shortener",
+    "keyword_hits",
+    "brand_in_subdomain_or_path",
+    "brand_lookalike",
+    "digit_ratio"
+  ],
+  "dataset": "faizann24/Using-machine-learning-to-detect-malicious-URLs (data.csv)"
+}

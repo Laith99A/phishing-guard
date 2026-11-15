@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Daten (Trainingsdatensatz wird nicht eingecheckt – siehe README)
+backend/data/
+
+# Eigene Allowlist-Ergänzungen bleiben lokal
+backend/models/allowlist.txt
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Extension-Build
+*.zip

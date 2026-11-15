@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Phishing Guard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" width="24" height="24" alt="" />
+    <h1>Phishing Guard</h1>
+    <span id="status" class="status" title="Backend-Status">●</span>
+  </header>
+
+  <section id="page-stats" class="card hidden">
+    <div class="row">
+      <span>Diese Seite</span>
+      <span id="page-verdict" class="pill"></span>
+    </div>
+    <div class="row small">
+      <span id="link-summary"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <label for="text">Mail-Text oder Link einfügen</label>
+    <textarea id="text" rows="7" placeholder="Sehr geehrter Kunde, Ihr Konto wurde gesperrt …&#10;oder einfach eine URL"></textarea>
+    <div class="actions">
+      <button id="analyze" type="button">Prüfen</button>
+      <button id="clear" type="button" class="secondary">Leeren</button>
+    </div>
+  </section>
+
+  <section id="result" class="card hidden">
+    <div class="row">
+      <strong>Ergebnis</strong>
+      <span id="verdict" class="pill"></span>
+    </div>
+    <div class="meter"><div id="meter-fill"></div></div>
+    <div id="score" class="small"></div>
+
+    <div id="text-reasons-wrap" class="hidden">
+      <h2>Auffälligkeiten im Text</h2>
+      <ul id="text-reasons"></ul>
+    </div>
+
+    <div id="links-wrap" class="hidden">
+      <h2>Enthaltene Links</h2>
+      <ul id="links"></ul>
+    </div>
+  </section>
+
+  <p id="error" class="error hidden"></p>
+
+  <footer>
+    <a href="#" id="open-options">Einstellungen</a>
+    <span>·</span>
+    <span class="small">Analyse läuft lokal auf deinem Rechner</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
