@@ -76,6 +76,10 @@ class TextModel:
 
 ### Backend
 
+Am einfachsten: `start-backend.bat` (Windows) bzw. `./start-backend.sh` (macOS/Linux) doppelklicken – legt beim ersten Mal die virtuelle Umgebung an und startet die API. Fenster offen lassen.
+
+Manuell:
+
 ```bash
 cd backend
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
