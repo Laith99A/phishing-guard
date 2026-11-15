@@ -102,7 +102,7 @@ docker run -p 8000:8000 phishing-guard
 2. **Entpackte Erweiterung laden** → Ordner `extension/` wählen
 3. Backend läuft? Der Punkt im Popup wird grün.
 
-Zum Ausprobieren: `docs/demo.html` im Browser öffnen – die Seite enthält Testlinks, die markiert werden sollten. Beispiel-Mail zum Einfügen: `docs/beispiel-mail.txt`.
+Zum Ausprobieren: **http://127.0.0.1:8000/demo** öffnen – die Seite enthält Testlinks, die markiert werden sollten. Beispiel-Mail zum Einfügen: `docs/beispiel-mail.txt`.
 
 ### Entwicklung
 
@@ -142,6 +142,7 @@ CI (GitHub Actions) führt Lint, Tests, einen Manifest-/Syntax-Check der Extensi
 backend/
   app/
     main.py         FastAPI-Endpoints, Pipeline, Schwellen
+    static/demo.html  Testseite (/demo)
     features.py     URL-Merkmale, Lookalike-Erkennung, Redirect-Auflösung, Erklärungen
     heuristics.py   Regelbasierte Textanalyse (DE/EN)
     allowlist.py    Bekannte Domains
@@ -160,7 +161,7 @@ extension/
   popup.*         Mail-Check
   options.*       Einstellungen
 docs/
-  demo.html, beispiel-mail.txt
+  beispiel-mail.txt
 ```
 
 ## Lizenz

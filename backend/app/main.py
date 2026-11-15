@@ -7,10 +7,11 @@ Docs:         http://127.0.0.1:8000/docs
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse
 
 from . import __version__
 from . import features as F
@@ -108,10 +109,17 @@ def index() -> str:
 <ul>
 <li><a href="/health">/health</a> – Status und Modell-Metriken</li>
 <li><a href="/docs">/docs</a> – API direkt ausprobieren</li>
+<li><a href="/demo">/demo</a> – Testseite mit Links, die die Extension markieren sollte</li>
 </ul>
 <p>Nächster Schritt: Extension in Chrome laden (<code>chrome://extensions</code> → Entwicklermodus →
 „Entpackte Erweiterung laden“ → Ordner <code>extension/</code>).</p>
 </body></html>"""
+
+
+@app.get("/demo", include_in_schema=False)
+def demo() -> FileResponse:
+    """Testseite mit harmlosen und (ausgedachten) Phishing-Links."""
+    return FileResponse(Path(__file__).parent / "static" / "demo.html", media_type="text/html")
 
 
 @app.get("/health", response_model=HealthResponse)
