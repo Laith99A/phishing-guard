@@ -10,6 +10,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 
 from . import __version__
 from . import features as F
@@ -95,6 +96,22 @@ def _score_urls(urls: list[str]) -> list[UrlResult]:
             results[i] = UrlResult(url=u, score=s, verdict=to_verdict(s), reasons=reasons)
 
     return [r for r in results if r is not None]
+
+
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+def index() -> str:
+    return """<!doctype html><html lang="de"><meta charset="utf-8">
+<title>Phishing Guard</title>
+<body style="font:16px/1.6 system-ui;max-width:560px;margin:60px auto;padding:0 16px">
+<h1 style="font-size:22px">✅ Phishing Guard Backend läuft</h1>
+<p>Dieses Fenster brauchst du nicht – die Browser-Extension spricht im Hintergrund mit dieser API.</p>
+<ul>
+<li><a href="/health">/health</a> – Status und Modell-Metriken</li>
+<li><a href="/docs">/docs</a> – API direkt ausprobieren</li>
+</ul>
+<p>Nächster Schritt: Extension in Chrome laden (<code>chrome://extensions</code> → Entwicklermodus →
+„Entpackte Erweiterung laden“ → Ordner <code>extension/</code>).</p>
+</body></html>"""
 
 
 @app.get("/health", response_model=HealthResponse)
